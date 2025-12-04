@@ -226,13 +226,13 @@ if ($view_atual == 'funcionarios') {
               botao.addEventListener('click', () => {
                 const acao = botao.dataset.action;
                 if (acao === 'adicionar-usuario') {
-                  window.location.href = '../html/registra_funcionario.html';
+                  window.location.href = '../html/registra_funcionario.php';
                 } 
                 else if (acao === 'adicionar-equipamento') {
-                  window.location.href = '../html/adicionarEquipamento.html';
+                  window.location.href = '../html/adicionarEquipamento.php';
                 }
                 else if (acao === 'adicionar-prateleira') {
-                  window.location.href = '../html/adicionarPrateleira.html';
+                  window.location.href = '../html/adicionarPrateleira.php';
                 }
               });
             });

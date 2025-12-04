@@ -2,15 +2,17 @@
 session_start();
 include 'conexao.php'; 
 
+if (!isset($_SESSION['adm']) || $_SESSION['adm'] != 1) {
+    echo "<script>alert('Acesso negado.'); window.history.back();</script>";
+    exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    
     $nome = trim($_POST["nome"] ?? '');
     $fabricante = trim($_POST["fabricante"] ?? '');
     $quantidade = (int)($_POST["quantidade"] ?? 0); 
     $descricao = trim($_POST["descricao"] ?? '');
 
-    
     if (empty($nome) || $quantidade <= 0) {
         echo "
         <script>
@@ -52,6 +54,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ";
     }
 }
-
 $conn->close();
 ?>

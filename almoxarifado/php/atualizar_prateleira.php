@@ -25,15 +25,17 @@ if ($result_prat->num_rows == 0) {
     exit;
 }
 
-
 $stmt = $conn->prepare("UPDATE equipamentos SET id_prateleira = ? WHERE id_equipamento = ?");
 $stmt->bind_param("ii", $id_prateleira, $id_equipamento);
 
 if ($stmt->execute()) {
-
     $obs = "Localização alterada para prateleira ID: $id_prateleira";
     $id_func = $_SESSION['id_funcionario'];
-    $conn->query("INSERT INTO movimentacoes (id_equipamento, id_funcionario, observacao) VALUES ($id_equipamento, $id_func, '$obs')");
+    
+    $stmt_log = $conn->prepare("INSERT INTO movimentacoes (id_equipamento, id_funcionario, tipo_movimentacao, quantidade, observacao) VALUES (?, ?, 'saida', 0, ?)");
+    $stmt_log->bind_param("iis", $id_equipamento, $id_func, $obs);
+    $stmt_log->execute();
+    $stmt_log->close();
 
     echo "Localização do equipamento atualizada com sucesso!";
 } else {
