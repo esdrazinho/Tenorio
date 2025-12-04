@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Login - Almoxarifado</title>
+<link rel="stylesheet" href="../css/Login.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="mosaic" aria-hidden="true">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+    </div>
+
+    <div class="login-wrap" role="region" aria-label="Formulário de login">
+      <div class="login-title">Entrar na conta</div>
+
+      
+      <form action="../php/verificar_login.php" method="POST">
+        <div class="field">
+          <label class="label" for="RE">RE do Funcionário</label>
+          <input id="RE" name="RE" type="text" placeholder="Digite seu RE" autocomplete="username" required>
+        </div>
+
+        <button class="btn" type="submit" name="entra">Entrar</button>
+      </form>
+
+      <div class="login-error" id="loginError"></div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const erro = urlParams.get('erro');
+      const errorContainer = document.getElementById('loginError');
+
+      if (!errorContainer) return;
+
+      let mensagem = '';
+
+      if (erro === '1') {
+        mensagem = 'RE não encontrado ou funcionário inativo. Acesso negado.';
+      } 
+      if (mensagem) {
+        errorContainer.textContent = mensagem;
+        
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    });
+  </script>
+</body>
+</html>

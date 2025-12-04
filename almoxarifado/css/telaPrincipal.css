@@ -1,0 +1,680 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* SIDEBAR PADRÃO  */
+  .sidebar {
+    width: 220px;
+    background-color: #0f3f6b; 
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 0 12px 12px 0; 
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .sidebar h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+   
+  }
+  
+  .sidebar ul li {
+    margin-bottom: 8px; 
+    padding: 0;         
+  }
+  
+  .sidebar ul li a {
+    display: block;
+    padding: 10px 12px;        
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.18s, transform 0.14s;
+    cursor: pointer;
+  }
+ 
+  .sidebar ul li a:hover {
+    background-color: #1aa0c298;
+    transform: translateX(4px);
+  }
+  
+  .sidebar ul li.ativo a,
+  .sidebar ul li a.ativo {
+    background-color: #1aa0c2;
+    font-weight: 600;
+  }
+ 
+  .sidebar ul li.ativo {
+    background-color: transparent;
+  }
+  
+.sidebar ul li.usuario-logado span.nome-usuario {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+ 
+ .sidebar ul li.usuario-logado {
+  margin-top: auto; 
+}
+
+
+.sidebar ul li.usuario-logado + li a {
+  color: #e73c3c; 
+  font-weight: 600; 
+}
+
+
+.sidebar ul li.usuario-logado + li a:hover {
+  background-color: #c02b2b; 
+  color: #fff; 
+}
+  /* MAIN  */
+  main {
+    margin-left: 240px; 
+    padding: 25px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  /* TABELAS */
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: auto;
+  }
+  
+  table th,
+  table td {
+    margin-top: 20px;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #1aa0c2;
+    color: #fff;
+  }
+  
+  /* FORMULÁRIOS */
+  .form-container {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .form-grupo {
+    margin-bottom: 15px;
+  }
+  
+  .form-grupo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-grupo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .form-grupo input:focus {
+    border-color: #1aa0c2;
+    outline: none;
+  }
+  
+  /* BOTÕES */
+  .botoes {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .botoes button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .botoes button.salvar {
+    background-color: #1aa0c2;
+    color: #fff;
+  }
+  
+  .botoes button.salvar:hover {
+    background-color: #147891;
+  }
+  
+  .botoes button.cancelar {
+    background-color: #e73c3c;
+    color: #fff;
+  }
+  
+  .botoes button.cancelar:hover {
+    background-color: #c02b2b;
+  }
+  
+  /* BARRA DE AÇÕES */
+  .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .actions input.search {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d8efff;
+  }
+
+  .actions input.search:focus {
+    border-color: #1aa0c2; 
+    outline: none; 
+    box-shadow: 0 0 4px #1aa0c26b; 
+  }
+  
+  
+  .actions .btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #1aa0c2;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .actions .btn:hover {
+    background-color: #06667e;
+  }
+  
+
+
+  /*BOTÃO ADICIONAR */
+.actions .btn.adicionar {
+  background-color: #1aa0c2;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.actions .btn.adicionar:hover {
+  background-color: #06667e;
+  transform: scale(1.05);
+}
+
+
+.table .btn.editar {
+  background-color: #1aa0c2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.table .btn.editar:hover {
+  background-color: #06667e;
+  transform: scale(1.05);
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #1aa0c2;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.dropbtn:hover {
+  background-color: #06667e;
+  transform: scale(1.05);
+}
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 35px;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 12px;
+  z-index: 1000;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content label {
+  font-size: 13px;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.dropdown-content input[type="number"] {
+  width: 70px;
+  padding: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.dropdown-content .acao-btn {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.dropdown-content .acao-btn.pegar {
+  background-color: #1aa0c2;
+  color: #fff;
+}
+
+.dropdown-content .acao-btn.devolver {
+  background-color: #e73c3c;
+  color: #fff;
+}
+
+.dropdown-content .acao-btn.pegar:hover {
+  background-color: #06667e;
+}
+
+.dropdown-content .acao-btn.devolver:hover {
+  background-color: #c02b2b;
+}
+
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #1aa0c2;
+  color: #fff;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(26,160,194,0.25);
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.fab:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(26,160,194,0.30); }
+.fab.open { transform: rotate(45deg) translateY(-2px); }
+.speed-dial .fab { pointer-events: auto; }
+
+.speed-dial {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.speed-dial-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 88px;
+  align-items: flex-end;
+  transform-origin: bottom right;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.98);
+  pointer-events: none;
+  z-index: 1300; 
+}
+
+.speed-dial.open {
+  pointer-events: auto;
+}
+.speed-dial.open .speed-dial-actions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+
+.sd-btn {
+  background-color: #fff;
+  color: #0f3f6b;
+  border: 1px solid #d8efff;
+  padding: 10px 16px; 
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  font-weight: 700;
+  font-size: 15px; 
+  white-space: nowrap;
+  transition: background 0.12s, transform 0.12s;
+}
+.sd-btn:hover { background-color: #f1fbff; transform: translateY(-2px); }
+
+
+@media (max-width: 600px) {
+  .fab { right: 16px; bottom: 16px; width: 48px; height: 48px; font-size: 22px; }
+  .speed-dial { right: 16px; bottom: 16px; }
+  .sd-btn { padding: 8px 10px; font-size: 14px; }
+}
+
+
+.data-row {
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.data-row:hover,
+.data-row:focus {
+  background-color: #f3fbff;
+  outline: none;
+}
+
+
+.expand-row .expand-cell {
+  background: #ffffff;
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+}
+
+.row-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.expand-row .acao-btn {
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+
+.expand-row[hidden] .expand-cell { opacity: 0; transform: translateY(-6px); pointer-events: none; }
+.expand-row:not([hidden]) .expand-cell { opacity: 1; transform: none; pointer-events: auto; transition: opacity 0.18s ease, transform 0.18s ease; }
+
+/* CHECKBOX  */
+.checkbox-grupo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.checkbox-grupo label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.checkbox-grupo input[type="checkbox"] {
+  accent-color: #1aa0c2;
+  transform: scale(1.2);
+  cursor: pointer;
+  margin: 0;
+}
+
+/* ===== QUANTIDADE + BOTÕES ===== */
+.quantidade {
+  width: 70px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.quantidade:focus {
+  border-color: #1aa0c2;
+  outline: none;
+}
+
+.acao-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.acao-btn.pegar {
+  background: #1aa0c2;
+  color: #fff;
+}
+
+.acao-btn.pegar:hover {
+  background: #06667e;
+}
+
+.acao-btn.devolver {
+  background: #e73c3c;
+  color: #fff;
+}
+
+.acao-btn.devolver:hover {
+  background: #c02b2b;
+}
+
+/* ... (Todos os estilos existentes) ... */
+
+
+/* ===== ESTILOS PARA DROPDOWN DE PRATELEIRA ===== */
+.dropdown-prat-container {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu-prat {
+  display: none; 
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 200px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 8px;
+  z-index: 100;
+  top: 100%; 
+  margin-top: 6px; 
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+}
+
+
+.dropdown-prat-container.open .dropdown-menu-prat {
+  display: block;
+}
+
+.dropdown-item-prat {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #333;
+  list-style: none; /* Remove bolinhas da lista */
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.dropdown-item-prat:hover {
+  background-color: #f1fbff;
+  color: #0f3f6b;
+}
+
+.dropdown-item-prat.disabled {
+  color: #999;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}
+
+/* Responsividade principal */
+@media (max-width: 1024px) {
+  /* reduzir largura sidebar em tablets */
+  .sidebar { width: 200px; }
+  main { margin-left: 200px; }
+}
+
+/* Layout móvel: esconder sidebar, permitir scroll horizontal da tabela e empilhar controles */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  main { margin-left: 0; padding: 16px; }
+
+  /* ações empilhadas */
+  .actions { flex-direction: column; gap: 8px; }
+  .actions .btn { width: 100%; }
+  .actions input.search { width: 100%; }
+
+  /* tabela rolável horizontalmente */
+  .table { border-radius: 8px; overflow: hidden; }
+  .table-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { min-width: 720px; }
+
+  /* ajustar linhas/espacamentos */
+  table th, table td { padding: 10px 12px; font-size: 14px; }
+  .data-row, .expand-row { font-size: 14px; }
+
+  /* FAB: reduzir margem para não sobrepor conteúdo */
+  .speed-dial { right: 16px; bottom: 16px; }
+}
+
+/* Ajustes finos para celular pequeno */
+@media (max-width: 600px) {
+  .sd-btn { padding: 8px 10px; font-size: 14px; }
+  .fab { right: 12px; bottom: 12px; width: 48px; height: 48px; font-size: 22px; }
+  table { min-width: 600px; }
+  .quantidade { width: 72px; height: 36px; padding: 6px 10px; }
+}
+
+/* ... (todo o seu CSS existente) ... */
+
+/* Estilos para Tabela de Funcionários */
+.acao-btn.desativar-func {
+  background: #e73c3c;
+  color: #fff;
+  margin-left: 8px;
+}
+.acao-btn.desativar-func:hover {
+  background: #c02b2b;
+}
+
+.acao-btn.ativar-func {
+  background: #2ecc71;
+  color: #fff;
+  margin-left: 8px;
+}
+.acao-btn.ativar-func:hover {
+  background: #27ae60;
+}
+
+.acao-btn.editar-func {
+  background-color: #1aa0c2;
+  color: #fff;
+}
+.acao-btn.editar-func:hover {
+  background: #06667e;
+}
+
+.acao-btn-disabled {
+  font-size: 12px;
+  color: #999;
+  margin-left: 8px;
+}
+
+/* Linha do funcionário inativo */
+tr.inativo {
+  background-color: #fcf0f0;
+  opacity: 0.7;
+}
+tr.inativo:hover {
+  background-color: #fbe6e6;
+  opacity: 1;
+}
+tr.inativo td {
+  color: #777;
+}
+
+/* ADIÇÃO PARA O TEXTAREA (CAMPO DESCRIÇÃO) */
+.form-grupo textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-height: 100px; 
+  resize: vertical; 
+  font-family: Arial, sans-serif; 
+  font-size: 14px; 
+}
+
+.form-grupo textarea:focus {
+  border-color: #1aa0c2;
+  outline: none;
+}
